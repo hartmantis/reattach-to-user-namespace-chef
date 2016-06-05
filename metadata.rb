@@ -9,4 +9,9 @@ long_description 'Installs/Configures reattach-to-user-namespace'
 version '0.0.1'
 
 source_url 'https://github.com/RoboticCheese/reattach-to-user-namespace-chef'
-issues_url 'https://github.com/RoboticCheese/reattach-to-user-namespace-chef/issues'
+issues_url 'https://github.com/RoboticCheese/reattach-to-user-namespace-chef' \
+           '/issues'
+
+depends 'homebrew', '~> 2.1'
+
+supports 'mac_os_x'
