@@ -19,8 +19,8 @@
 #
 
 require 'json'
-require 'chef/mixin/shell_out'
 require 'chef/resource'
+require_relative 'helpers_app'
 
 class Chef
   class Resource
@@ -28,10 +28,6 @@ class Chef
     #
     # @author Jonathan Hartman <j@p4nt5.com>
     class ReattachToUserNamespaceApp < Resource
-      include Chef::Mixin::ShellOut
-
-      PATH ||= '/usr/local/bin/reattach-to-user-namespace'
-
       provides :reattach_to_user_namespace_app, platform_family: 'mac_os_x'
 
       #
@@ -62,10 +58,9 @@ class Chef
       default_action :install
 
       load_current_value do
-        installed(::File.exist?(PATH))
+        installed(ReattachToUserNamespace::Helpers::App.installed?)
         if installed
-          cmd = 'reattach-to-user-namespace -v'
-          version(shell_out(cmd).stdout.lines[0].split[-1])
+          version(ReattachToUserNamespace::Helpers::App.installed_version?)
         end
       end
 
@@ -81,19 +76,19 @@ class Chef
           end
         when :direct
           new_resource.installed(true)
-          new_resource.version || new_resource.version(latest_version?)
+          new_resource.version || new_resource.version(
+            ReattachToUserNamespace::Helpers::App.latest_version?
+          )
 
           converge_if_changed :installed do
             remote_path = 'https://github.com/ChrisJohnsen/' \
-                          'tmux-MacOSX-pasteboard/archive/'
+                          'tmux-MacOSX-pasteboard/archive/' \
                           "v#{new_resource.version}.zip"
             local_path = ::File.join(Chef::Config[:file_cache_path],
                                      "rtun-v#{new_resource.version}.zip")
             build_path = ::File.join(Chef::Config[:file_cache_path],
                                      "rtun-v#{new_resource.version}")
-            remote_file local_path do
-              source remote_path
-            end
+            remote_file(local_path) { source remote_path }
             execute 'Extract RtUN zip file' do
               command "unzip -j -d #{build_path} -o #{local_path}"
             end
@@ -101,7 +96,7 @@ class Chef
               command 'make'
               cwd build_path
             end
-            remote_file path do
+            remote_file ReattachToUserNamespace::Helpers::App::PATH do
               s = ::File.join(build_path, 'reattach-to-user-namespace')
               source "file://#{s}"
             end
@@ -120,19 +115,19 @@ class Chef
           homebrew_package('reattach-to-user-namespace') { action :upgrade }
         when :direct
           new_resource.installed(true)
-          new_resource.version || new_resource.version(latest_version?)
+          new_resource.version || new_resource.version(
+            ReattachToUserNamespace::Helpers::App.latest_version?
+          )
 
           converge_if_changed :version do
             remote_path = 'https://github.com/ChrisJohnsen/' \
-                          'tmux-MacOSX-pasteboard/archive/'
+                          'tmux-MacOSX-pasteboard/archive/' \
                           "v#{new_resource.version}.zip"
             local_path = ::File.join(Chef::Config[:file_cache_path],
                                      "rtun-v#{new_resource.version}.zip")
             build_path = ::File.join(Chef::Config[:file_cache_path],
                                      "rtun-v#{new_resource.version}")
-            remote_file local_path do
-              source remote_path
-            end
+            remote_file(local_path) { source remote_path }
             execute 'Extract RtUN zip file' do
               command "unzip -j -d #{build_path} -o #{local_path}"
             end
@@ -140,7 +135,7 @@ class Chef
               command 'make'
               cwd build_path
             end
-            remote_file path do
+            remote_file ReattachToUserNamespace::Helpers::App::PATH do
               s = ::File.join(build_path, 'reattach-to-user-namespace')
               source "file://#{s}"
             end
@@ -161,21 +156,8 @@ class Chef
           new_resource.installed(false)
 
           converge_if_changed :installed do
-            file('/usr/local/bin/reattach-to-user-namespace') { action :delete }
+            file(ReattachToUserNamespace::Helpers::App::PATH) { action :delete }
           end
-        end
-      end
-
-      #
-      # Query the GitHub API to find the latest released version of RtUN.
-      #
-      # @return [String] the latest version in GitHub
-      #
-      def latest_version?
-        @latest_version ||= begin
-          uri = 'https://api.github.com/repos/ChrisJohnsen/' \
-                'tmux-MacOSX-pasteboard/releases'
-          JSON.parse(Net::HTTP.get(URI(uri))).first['tag_name'].gsub(/^v/, '')
         end
       end
     end

@@ -46,29 +46,33 @@ If desired, a specific version of RtUN can be installed rather than the latest:
 Resources
 =========
 
-***reattach_to_user_namespace***
+***reattach_to_user_namespace_app***
 
-TODO: Describe each included resource.
+Manages installation of the RtUN utility.
 
 Syntax:
 
-    reattach_to_user_namespace 'my_resource' do
-        attribute1 'value1'
-        action :create
+    reattach_to_user_namespace_app 'default' do
+      source :homebrew
+      version '1.2'
+      action :install
     end
 
 Actions:
 
-| Action  | Description  |
-|---------|--------------|
-| action1 | Do something |
+| Action     | Description     |
+|------------|-----------------|
+| `:install` | Install the app |
+| `:upgrade` | Upgrade the app |
+| `:remove`  | Remove the app  |
 
-Attributes:
+Properties:
 
-| Attribute  | Default        | Description          |
-|------------|----------------|----------------------|
-| attribute1 | `'some_value'` | Do something         |
-| action     | `:create`      | Action(s) to perform |
+| Property | Default     | Description                                       |
+|--------- |-------------|---------------------------------------------------|
+| source   | `:homebrew` | Install via `:homebrew` or `:direct` GitHub DL    |
+| version  | `nil`       | Install a specific version instead of the latest  |
+| action   | `:install`  | Action(s) to perform                              |
 
 Contributing
 ============
