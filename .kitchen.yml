@@ -6,14 +6,30 @@ provisioner:
   name: chef_zero
 
 platforms:
-  - name: ubuntu-14.04
-  - name: ubuntu-12.04
-  - name: centos-7.1
-  - name: centos-6.7
-  - name: centos-5.11
+  - name: macosx-10.10
+    driver:
+      box: roboticcheese/macosx-10.10
+      ssh:
+        insert_key: false
 
 suites:
   - name: default
     run_list:
-      - recipe[reattach-to-user-namespace]
+      - recipe[reattach-to-user-namespace_test]
+  - name: direct
+    run_list:
+      - recipe[reattach-to-user-namespace_test]
     attributes:
+      reattach_to_user_namespace:
+        app:
+          source: direct
+  - name: remove
+    run_list:
+      - recipe[reattach-to-user-namespace_test::remove]
+  - name: remove_direct
+    run_list:
+      - recipe[reattach-to-user-namespace_test::remove]
+    attributes:
+      reattach_to_user_namespace:
+        app:
+          source: direct

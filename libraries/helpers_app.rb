@@ -26,7 +26,7 @@ module ReattachToUserNamespace
   module Helpers
     # Helper methods for the RtUN app.
     #
-    # @author Jonathan Hartman <j@p4nt5.com>
+    # @author Jonathan Hartman <j@hartman.io>
     class App
       PATH ||= '/usr/local/bin/reattach-to-user-namespace'.freeze
 

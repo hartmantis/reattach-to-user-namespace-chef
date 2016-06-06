@@ -26,7 +26,7 @@ class Chef
   class Resource
     # A Chef resource for managing the reattach-to-user-namespace application.
     #
-    # @author Jonathan Hartman <j@p4nt5.com>
+    # @author Jonathan Hartman <j@hartman.io>
     class ReattachToUserNamespaceApp < Resource
       provides :reattach_to_user_namespace_app, platform_family: 'mac_os_x'
 

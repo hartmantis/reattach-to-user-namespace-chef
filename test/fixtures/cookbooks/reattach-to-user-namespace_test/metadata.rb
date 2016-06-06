@@ -1,11 +1,11 @@
 # Encoding: UTF-8
 
-name 'resource_reattach_to_user_namespace_app_test'
+name 'reattach-to-user-namespace_test'
 maintainer 'Jonathan Hartman'
 maintainer_email 'j@hartman.io'
 license 'apache2'
-description 'Resource test wrapper'
-long_description 'Resource test wrapper'
+description 'Test wrapper'
+long_description 'Test wrapper'
 version '0.0.1'
 
 depends 'reattach-to-user-namespace'

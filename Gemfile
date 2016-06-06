@@ -22,11 +22,11 @@ group :test do
   gem 'fauxhai'
   gem 'test-kitchen'
   gem 'kitchen-vagrant'
+  gem 'kitchen-localhost'
 end
 
 group :integration do
   gem 'serverspec'
-  gem 'cucumber'
 end
 
 group :deploy do
@@ -34,6 +34,6 @@ group :deploy do
 end
 
 group :production do
-  gem 'chef', '>= 12'
+  gem 'chef', '>= 12.5'
   gem 'berkshelf'
 end
