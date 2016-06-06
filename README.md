@@ -10,7 +10,7 @@ Reattach To User Namespace Cookbook
 [codeclimate]: https://codeclimate.com/github/RoboticCheese/reattach-to-user-namespace-chef
 [coveralls]: https://coveralls.io/r/RoboticCheese/reattach-to-user-namespace-chef
 
-TODO: Enter the cookbook description here.
+A Chef cookbook for the reattach-to-user-namespace OS X utility.
 
 Requirements
 ============
@@ -27,14 +27,21 @@ Recipes
 
 ***default***
 
-TODO: Describe each component recipe.
+Performs an attribute-based installation of RtUN.
 
 Attributes
 ==========
 
 ***default***
 
-TODO: Describe any noteworthy attributes.
+The default behavior is to install via `:homebrew`, but this can be overridden
+if you wish to install via `:direct` download and compile from GitHub:
+
+    default['reattach_to_user_namespace']['app']['source'] = nil
+
+If desired, a specific version of RtUN can be installed rather than the latest:
+
+    default['reattach_to_user_namespace']['app']['version'] = nil
 
 Resources
 =========
@@ -63,13 +70,6 @@ Attributes:
 | attribute1 | `'some_value'` | Do something         |
 | action     | `:create`      | Action(s) to perform |
 
-Providers
-=========
-
-TODO: Describe each included provider
-
-***Chef::Provider::SomeProvider***
-
 Contributing
 ============
 
@@ -84,7 +84,7 @@ License & Authors
 =================
 - Author: Jonathan Hartman <j@hartman.io>
 
-Copyright 2016 Jonathan Hartman
+Copyright 2016, Jonathan Hartman
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

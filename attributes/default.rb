@@ -1,7 +1,7 @@
 # Encoding: UTF-8
 #
 # Cookbook Name:: reattach-to-user-namespace
-# Recipe:: default
+# Attributes:: default
 #
 # Copyright 2016, Jonathan Hartman
 #
@@ -18,9 +18,7 @@
 # limitations under the License.
 #
 
-app_attrs = node['reattach_to_user_namespace']['app']
-
-reattach_to_user_namespace_app 'default' do
-  source app_attrs['source'] unless app_attrs['source'].nil?
-  version app_attrs['version'] unless app_attrs['version'].nil?
+default['reattach_to_user_namespace']['app'].tap do |a|
+  a['source'] = nil
+  a['version'] = nil
 end
