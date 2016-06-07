@@ -89,7 +89,8 @@ describe 'resource_reattach_to_user_namespace_app::mac_os_x::10_10' do
             '/usr/local/bin/reattach-to-user-namespace'
           ).with(
             source: "file://#{Chef::Config[:file_cache_path]}/rtun-v1.2.3/" \
-                    'reattach-to-user-namespace'
+                    'reattach-to-user-namespace',
+            mode: '0755'
           )
         end
       end
@@ -163,7 +164,8 @@ describe 'resource_reattach_to_user_namespace_app::mac_os_x::10_10' do
             '/usr/local/bin/reattach-to-user-namespace'
           ).with(
             source: "file://#{Chef::Config[:file_cache_path]}/rtun-v1.2.3/" \
-                    'reattach-to-user-namespace'
+                    'reattach-to-user-namespace',
+            mode: '0755'
           )
         end
       end
@@ -226,7 +228,8 @@ describe 'resource_reattach_to_user_namespace_app::mac_os_x::10_10' do
             '/usr/local/bin/reattach-to-user-namespace'
           ).with(
             source: "file://#{Chef::Config[:file_cache_path]}/rtun-v1.2.3/" \
-                    'reattach-to-user-namespace'
+                    'reattach-to-user-namespace',
+            mode: '0755'
           )
         end
       end

@@ -99,6 +99,7 @@ class Chef
             remote_file ReattachToUserNamespace::Helpers::App::PATH do
               s = ::File.join(build_path, 'reattach-to-user-namespace')
               source "file://#{s}"
+              mode '0755'
             end
           end
         end
@@ -138,6 +139,7 @@ class Chef
             remote_file ReattachToUserNamespace::Helpers::App::PATH do
               s = ::File.join(build_path, 'reattach-to-user-namespace')
               source "file://#{s}"
+              mode '0755'
             end
           end
         end

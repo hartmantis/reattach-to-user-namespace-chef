@@ -9,15 +9,15 @@ describe 'reattach-to-user-namespace::default::direct' do
     end
   end
 
-  describe command('reattach-to-user-namespace ls') do
+  describe command('/usr/local/bin/reattach-to-user-namespace ls') do
     it 'exits successfully' do
       expect(subject.exit_status).to eq(0)
     end
   end
 
-  describe command('brew list reattach-to-user-namespace') do
+  describe command('/usr/local/bin/brew list reattach-to-user-namespace') do
     it 'exits unsuccessfully' do
-      expect(subject.exit_status).to eq(1)
+      expect(subject.exit_status).to_not eq(0)
     end
   end
 end
