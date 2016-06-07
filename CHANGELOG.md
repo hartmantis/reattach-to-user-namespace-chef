@@ -1,6 +1,9 @@
 Reattach To User Namespace Cookbook CHANGELOG
 =============================================
 
+Unreleased
+----------
+
 v0.1.0 (2016-06-07)
 -------------------
 - Initial release!
