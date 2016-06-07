@@ -15,12 +15,14 @@ A Chef cookbook for the reattach-to-user-namespace OS X utility.
 Requirements
 ============
 
-TODO: Describe cookbook dependencies.
+This cookbook requires an OS X node and depends on the homebrew community
+cookbook.
 
 Usage
 =====
 
-TODO: Describe how to use the cookbook.
+Either add the included default recipe to your run list or implement the
+custom resources in a recipe of your own.
 
 Recipes
 =======

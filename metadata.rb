@@ -6,7 +6,7 @@ maintainer_email 'j@hartman.io'
 license 'apachev2'
 description 'Installs/Configures reattach-to-user-namespace'
 long_description 'Installs/Configures reattach-to-user-namespace'
-version '0.0.1'
+version '0.1.0'
 
 source_url 'https://github.com/RoboticCheese/reattach-to-user-namespace-chef'
 issues_url 'https://github.com/RoboticCheese/reattach-to-user-namespace-chef' \
