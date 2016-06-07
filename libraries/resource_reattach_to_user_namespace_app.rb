@@ -43,7 +43,7 @@ class Chef
       #
       # Optionally specify a version of RtUN to install.
       #
-      property :version, String
+      property :version, String, coerce: proc { |v| v.to_s }
 
       ######################################################################
       # Every property below this point is for tracking resource state and #
