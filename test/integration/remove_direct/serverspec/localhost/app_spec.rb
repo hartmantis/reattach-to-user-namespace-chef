@@ -11,7 +11,7 @@ describe 'reattach-to-user-namespace::default::remove_direct' do
 
   describe command('/usr/local/bin/reattach-to-user-namespace ls') do
     it 'exits unsuccessfully' do
-      expect(subject.exit_status).to eq(1)
+      expect(subject.exit_status).to_not eq(0)
     end
   end
 
