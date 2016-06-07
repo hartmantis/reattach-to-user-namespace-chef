@@ -23,6 +23,7 @@ suites:
       reattach_to_user_namespace:
         app:
           source: direct
+          version: 2.4
   - name: remove
     run_list:
       - recipe[reattach-to-user-namespace_test::remove]
@@ -33,3 +34,4 @@ suites:
       reattach_to_user_namespace:
         app:
           source: direct
+          version: 2.4
