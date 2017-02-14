@@ -72,7 +72,6 @@ class Chef
       action :install do
         case new_resource.source
         when :homebrew
-          include_recipe 'homebrew'
           homebrew_package 'reattach-to-user-namespace' do
             version new_resource.version if new_resource.version
           end
@@ -114,7 +113,6 @@ class Chef
       action :upgrade do
         case new_resource.source
         when :homebrew
-          include_recipe 'homebrew'
           homebrew_package('reattach-to-user-namespace') { action :upgrade }
         when :direct
           new_resource.installed(true)
@@ -154,7 +152,6 @@ class Chef
       action :remove do
         case new_resource.source
         when :homebrew
-          include_recipe 'homebrew'
           homebrew_package('reattach-to-user-namespace') { action :remove }
         when :direct
           new_resource.installed(false)

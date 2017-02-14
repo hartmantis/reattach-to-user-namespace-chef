@@ -17,10 +17,6 @@ shared_context 'resources::reattach_to_user_namespace_app::mac_os_x' do
       context 'all default properties' do
         include_context description
 
-        it 'includes the homebrew default recipe' do
-          expect(chef_run).to include_recipe('homebrew')
-        end
-
         it 'installs RtUN via Homebrew' do
           expect(chef_run).to install_homebrew_package(
             'reattach-to-user-namespace'
@@ -206,10 +202,6 @@ shared_context 'resources::reattach_to_user_namespace_app::mac_os_x' do
 
       context 'all default properties' do
         include_context description
-
-        it 'includes the homebrew default recipe' do
-          expect(chef_run).to include_recipe('homebrew')
-        end
 
         it 'removes RtUN via Homebrew' do
           expect(chef_run).to remove_homebrew_package(
