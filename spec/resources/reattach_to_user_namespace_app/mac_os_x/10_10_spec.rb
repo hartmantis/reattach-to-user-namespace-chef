@@ -17,7 +17,7 @@ describe 'resource_reattach_to_user_namespace_app::mac_os_x::10_10' do
     ) do |node|
       %i(name source version action).each do |p|
         unless send(p).nil?
-          node.set['resource_reattach_to_user_namespace_app_test'][p] = send(p)
+          node.default['resource_reattach_to_user_namespace_app_test'][p] = send(p)
         end
       end
     end

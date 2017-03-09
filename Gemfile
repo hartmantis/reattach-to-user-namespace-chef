@@ -4,26 +4,24 @@
 source 'https://rubygems.org'
 
 group :development do
-  gem 'yard-chef'
   gem 'guard'
-  gem 'guard-foodcritic'
-  gem 'guard-rspec'
   gem 'guard-kitchen'
+  gem 'guard-rspec'
+  gem 'yard-chef'
 end
 
 group :test do
-  gem 'rake'
-  gem 'rubocop'
-  gem 'foodcritic'
-  gem 'rspec'
   gem 'chefspec'
+  gem 'coveralls'
+  gem 'foodcritic'
+  gem 'kitchen-localhost'
+  gem 'kitchen-vagrant'
+  gem 'rake'
+  gem 'rspec'
+  gem 'rubocop'
   gem 'simplecov'
   gem 'simplecov-console'
-  gem 'coveralls'
-  gem 'fauxhai'
   gem 'test-kitchen'
-  gem 'kitchen-vagrant'
-  gem 'kitchen-localhost'
 end
 
 group :integration do
@@ -35,6 +33,6 @@ group :deploy do
 end
 
 group :production do
-  gem 'chef', '>= 12.5'
   gem 'berkshelf'
+  gem 'chef', '>= 12.1'
 end
