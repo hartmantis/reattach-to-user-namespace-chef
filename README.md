@@ -90,7 +90,7 @@ License & Authors
 =================
 - Author: Jonathan Hartman <j@hartman.io>
 
-Copyright 2016, Jonathan Hartman
+Copyright 2016-2017, Jonathan Hartman
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
