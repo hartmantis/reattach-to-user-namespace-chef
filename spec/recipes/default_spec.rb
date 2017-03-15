@@ -1,4 +1,5 @@
-# Encoding: UTF-8
+# encoding: utf-8
+# frozen_string_literal: true
 
 require_relative '../spec_helper'
 
@@ -9,7 +10,7 @@ describe 'reattach-to-user-namespace::default' do
     ChefSpec::SoloRunner.new(platform) do |node|
       %i(source version).each do |a|
         unless send(a).nil?
-          node.set['reattach_to_user_namespace']['app'][a] = send(a)
+          node.normal['reattach_to_user_namespace']['app'][a] = send(a)
         end
       end
     end

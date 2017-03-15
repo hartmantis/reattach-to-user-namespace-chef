@@ -5,6 +5,9 @@ driver:
 provisioner:
   name: chef_zero
 
+verifier:
+  sudo: false
+
 platforms:
   - name: macosx-10.10
     driver:
@@ -16,6 +19,9 @@ suites:
   - name: default
     run_list:
       - recipe[reattach-to-user-namespace_test]
+  - name: remove
+    run_list:
+      - recipe[reattach-to-user-namespace_test::remove]
   - name: direct
     run_list:
       - recipe[reattach-to-user-namespace_test]
@@ -24,9 +30,6 @@ suites:
         app:
           source: direct
           version: 2.4
-  - name: remove
-    run_list:
-      - recipe[reattach-to-user-namespace_test::remove]
   - name: remove_direct
     run_list:
       - recipe[reattach-to-user-namespace_test::remove]

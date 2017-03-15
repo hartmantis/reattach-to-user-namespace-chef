@@ -1,9 +1,10 @@
-# Encoding: UTF-8
+# encoding: utf-8
+# frozen_string_literal: true
 #
 # Cookbook Name:: reattach-to-user-namespace
 # Library:: resource_reattach_to_user_namespace_app
 #
-# Copyright 2016, Jonathan Hartman
+# Copyright 2016-2017, Jonathan Hartman
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
