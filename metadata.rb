@@ -14,6 +14,6 @@ source_url 'https://github.com/RoboticCheese/reattach-to-user-namespace-chef'
 issues_url 'https://github.com/RoboticCheese/reattach-to-user-namespace-chef' \
            '/issues'
 
-depends 'homebrew', '~> 3.0'
+depends 'homebrew', '< 4'
 
 supports 'mac_os_x'
