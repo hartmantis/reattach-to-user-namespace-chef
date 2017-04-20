@@ -1,8 +1,8 @@
 Reattach To User Namespace Cookbook CHANGELOG
 =============================================
 
-Unreleased
-----------
+v0.3.0 (2017-04-20)
+-------------------
 - Update the homebrew cookbook dependency
 
 v0.2.0 (2017-03-15)
