@@ -4,7 +4,7 @@
 name 'reattach-to-user-namespace'
 maintainer 'Jonathan Hartman'
 maintainer_email 'j@hartman.io'
-license 'apachev2'
+license 'Apache-2.0'
 description 'Installs/Configures reattach-to-user-namespace'
 long_description 'Installs/Configures reattach-to-user-namespace'
 version '0.2.1'

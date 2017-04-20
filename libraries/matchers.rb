@@ -1,5 +1,6 @@
 # encoding: utf-8
 # frozen_string_literal: true
+
 #
 # Cookbook Name:: reattach-to-user-namespace
 # Library:: matchers
@@ -21,7 +22,7 @@
 
 if defined?(ChefSpec)
   {
-    reattach_to_user_namespace_app: %i(install upgrade remove)
+    reattach_to_user_namespace_app: %i[install upgrade remove]
   }.each do |resource, actions|
     ChefSpec.define_matcher(resource)
 

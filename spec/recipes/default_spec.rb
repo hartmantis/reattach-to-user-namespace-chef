@@ -4,11 +4,11 @@
 require_relative '../spec_helper'
 
 describe 'reattach-to-user-namespace::default' do
-  %i(source version).each { |a| let(a) { nil } }
+  %i[source version].each { |a| let(a) { nil } }
   let(:platform) { { platform: 'mac_os_x', version: '10.10' } }
   let(:runner) do
     ChefSpec::SoloRunner.new(platform) do |node|
-      %i(source version).each do |a|
+      %i[source version].each do |a|
         unless send(a).nil?
           node.normal['reattach_to_user_namespace']['app'][a] = send(a)
         end
