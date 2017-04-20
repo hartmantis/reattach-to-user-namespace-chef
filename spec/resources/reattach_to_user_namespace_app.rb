@@ -7,11 +7,11 @@ shared_context 'resources::reattach_to_user_namespace_app' do
   include_context 'resources'
 
   let(:resource) { 'reattach_to_user_namespace_app' }
-  %w(source version).each { |p| let(p) { nil } }
+  %w[source version].each { |p| let(p) { nil } }
   let(:properties) { { source: source, version: version } }
   let(:name) { 'default' }
 
-  %i(installed? installed_version?).each { |i| let(i) { nil } }
+  %i[installed? installed_version?].each { |i| let(i) { nil } }
   let(:latest_version?) { '1.2.3' }
   let(:installed_version?) { nil }
 
@@ -20,7 +20,7 @@ shared_context 'resources::reattach_to_user_namespace_app' do
     allow(Kernel).to receive(:load)
       .with(%r{reattach-to-user-namespace/libraries/helpers_app\.rb})
       .and_return(true)
-    %i(latest_version? installed? installed_version?).each do |m|
+    %i[latest_version? installed? installed_version?].each do |m|
       allow(ReattachToUserNamespace::Helpers::App).to receive(m)
         .and_return(send(m))
     end

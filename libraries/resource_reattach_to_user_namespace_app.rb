@@ -1,5 +1,6 @@
 # encoding: utf-8
 # frozen_string_literal: true
+
 #
 # Cookbook Name:: reattach-to-user-namespace
 # Library:: resource_reattach_to_user_namespace_app
@@ -38,7 +39,7 @@ class Chef
       property :source,
                Symbol,
                coerce: proc { |v| v.to_sym },
-               equal_to: %i(direct homebrew),
+               equal_to: %i[direct homebrew],
                default: :homebrew
 
       #
